@@ -34,25 +34,41 @@ class Queue
             Q[rear] = x;
         }
     }
-    void dequeue()
+    int dequeue()
     {
         if(isEmpty())
             cout<<"Queue is empty\n";
         else
         {
-            front++;
-            
+            int x = Q[front++];
+            return x;
         }
+        return -1;
     }
     void display()
     {
         for(int i = front+1; i<=rear; i++)
             cout<<Q[i]<<" ";
         cout<<endl;
-
+    } 
+    int frontval()
+    {
+        if (isEmpty()) 
+        {
+            cout<<"Queue is empty, no front element"<<endl;
+            return int();
+        }
+        return Q[front+1];
     }
-    
-    
+    int rearval()
+    {
+        if (isEmpty()) 
+        {
+            cout<<"Queue is empty, no rear element"<<endl;
+            return int();
+        }
+        return Q[rear];
+    }
 };
 
 int main()
@@ -68,5 +84,6 @@ int main()
     q1.enqueue(60);
     q1.dequeue();
     q1.display();
+    cout<<"FRONT:"<<q1.frontval()<<endl<<"REAR:"<<q1.rearval();
 
 }
